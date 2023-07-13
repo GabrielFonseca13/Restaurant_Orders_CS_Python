@@ -29,6 +29,12 @@ class MenuBuilder:
         menu = list()
 
         for i in self.menu_data.dishes:
+            recipe_available = self.inventory.check_recipe_availability(
+                i.recipe
+            )
+            if not recipe_available:
+                return menu
+            # for i in self.menu_data.dishes:
             if restriction is None or restriction not in i.get_restrictions():
                 menu_data = {
                     "dish_name": i.name,
