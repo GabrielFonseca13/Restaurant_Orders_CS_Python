@@ -26,7 +26,7 @@ class MenuBuilder:
 
     # Req 4
     def get_main_menu(self, restriction=None) -> List[Dict]:
-        menu = list()
+        menu = []
 
         for i in self.menu_data.dishes:
             recipe_available = self.inventory.check_recipe_availability(
